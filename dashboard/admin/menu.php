@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Reservation</title>
+    <title>Dashboard - Menu</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <script defer src="../js/main.js"></script>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <ul class="sidebar-list">
-                <li class="sidebar-list-item active">
+                <li class="sidebar-list-item">
                     <a href="./reservation.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -34,7 +34,7 @@
                         <span>Reservation</span>
                     </a>
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item active">
                     <a href="./menu.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -76,7 +76,7 @@
         </div>
         <div class="app-content">
             <div class="app-content-header">
-                <h1 class="app-content-headerText">Reservation</h1>
+                <h1 class="app-content-headerText">Menu</h1>
                 <button class="mode-switch" title="Switch Theme">
                     <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
