@@ -1,0 +1,19 @@
+#login {
+    background-color: #c54545;
+    /* Green background */
+    border: none;
+    /* Remove borders */
+    color: white !important;
+    /* White text */
+    padding: 0 32px;
+
+    border-radius: 20px;
+
+}
+
+@media (width < 768px) {
+    #login {
+
+        color: red !important;
+    }
+}

@@ -30,6 +30,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
@@ -52,9 +53,12 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#reservation">Chefs</a></li>
                             <li class="scroll-to-section">
-                                <a href="./pages/login.php" class="text-danger">S'inscrire</a>
+                                <a href="./pages/login.php" id="login">S'inscrire</a>
                             </li>
                         </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
@@ -70,15 +74,13 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>About Us</h6>
-                            <h2>We Leave A Delicious Memory For You</h2>
+                            <h6>A propos de nous</h6>
+                            <h2>Nous laissons un d'licioieux souvenir pour vous</h2>
                         </div>
-                        <p>Klassy Cafe is one of the best <a href="https://templatemo.com/tag/restaurant"
-                                target="_blank" rel="sponsored">restaurant HTML templates</a> with Bootstrap v4.5.2 CSS
-                            framework. You can download and feel free to use this website template layout for your
-                            restaurant business. You are allowed to use this template for commercial purposes.
-                            <br><br>You are NOT allowed to redistribute the template ZIP file on any template donwnload
-                            website. Please contact us for more information.
+                        <p>ChefConnect est une communaut de chefs qui cuisinent pour vous. Nous mettons en relation des
+                            chefs passionn s avec des personnes qui cherchent des repas d'exception. Nous sommes l pour
+                            vous aider trouver le chef qui correspond votre demande et vous faire vivre une exp rience
+                            culinaire unique.
                         </p>
                         <div class="row">
                             <div class="col-4">
