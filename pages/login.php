@@ -36,7 +36,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <section class="form-section">
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                <form action="#">
+                <form action="../db/Processus_register.php">
                     <h1>S'inscrire</h1>
                     <div class="social-container">
                         <a href="#" class="social"><i class="fa fa-facebook"></i></a>
@@ -51,7 +51,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                <form action="#">
+                <form action="../db/Processus_login.php" method="post">
                     <h1>Connecter</h1>
                     <div class="social-container">
                         <a href="#" class="social"><i class="fa fa-facebook"></i></a>
@@ -59,8 +59,8 @@ https://templatemo.com/tm-558-klassy-cafe
                         <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
                     </div>
                     <span>ou Avec mail et password</span>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
+                    <input type="email" placeholder="Email" name="email" />
+                    <input type="password" placeholder="Password" name="password" />
                     <button>Sign In</button>
                 </form>
             </div>
