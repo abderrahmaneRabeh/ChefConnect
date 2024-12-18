@@ -4,6 +4,8 @@ include __DIR__ . "./connection.php";
 
 $conx = DbConnection();
 
+// LOGIN functions
+
 if ($conx->connect_error) {
     die("Connection failed:  {$conx->connect_error}");
 }
@@ -44,6 +46,21 @@ function Select_User($conx, $selectedUserId)
     } else {
         return false;
     }
+}
+
+// REGISTER functions
+
+function Ajouter_User($conx, $userName, $email, $pw)
+{
+    $sql = "INSERT INTO utilisateurs (username, email, pw, role_id) VALUES ('$userName', '$email', '$pw',1)";
+    $result = $conx->query($sql);
+
+    if ($result->affected_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 

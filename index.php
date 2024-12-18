@@ -45,9 +45,14 @@
                             <li class="scroll-to-section"><a href="#about">About</a></li>
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#reservation">Chefs</a></li>
-                            <li class="scroll-to-section">
-                                <a href="./pages/login.php" id="login">S'inscrire</a>
-                            </li>
+                            <?php
+                            session_start();
+                            if (isset($_SESSION["user"])) {
+                                echo '<li class="scroll-to-section"><a href="../dashboard/' . $_SESSION["role"] . '/reservation.php">' . $_SESSION["user"]["username"] . '</a></li>';
+                            } else {
+                                echo '<li class="scroll-to-section"><a href="./pages/login.php" id="login">S\'inscrire</a></li>';
+                            }
+                            ?>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
