@@ -607,4 +607,17 @@ body {
 
 .app-content-actions {
   display: none !important;
+}
+
+.app-icon-title-a-tag a {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--app-content-main-color);
+}
+.app-icon-title-a-tag a span {
+  color: red;
+}
+
+.lougout-btn button {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

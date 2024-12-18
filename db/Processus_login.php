@@ -9,13 +9,32 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     $password = $_POST["password"];
 
     $isExist = Check_Exist_User($conx, $email, $password);
-    // this function check the existing user in the database
+    // this function check the existing user in the database and return true or false
 
     if ($isExist) {
+        // if the user exist in the database then
 
         $role = Check_Role($conx, $email, $password);
 
-        switch ($role) {
+        $Selected_Id = $role["id_utilisateur"];
+        //we get the role of the user
+
+        $Selected_User = Select_User($conx, $Selected_Id);
+        // we get the user from the database
+
+
+        session_start();
+
+        $_SESSION["user"] = $Selected_User;
+        $_SESSION["role"] = $role["type_role"];
+
+        // echo "<pre>";
+        // print_r($_SESSION);
+        // echo "</pre>";
+
+
+        switch ($role["type_role"]) {
+            // we redirect the user to the dashboard according to the role
             case "admin":
                 header("Location: ../dashboard/admin/reservation.php");
                 break;
@@ -23,10 +42,10 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                 header("Location: ../dashboard/client/reservation.php");
                 break;
         }
+
     } else {
         header("Location: ../pages/login.php?error=Email ou mot de passe incorrect");
+        // if the user doesn't exist in the database then we redirect the user to the login page
     }
-
-
 
 }

@@ -8,14 +8,6 @@ if ($conx->connect_error) {
     die("Connection failed:  {$conx->connect_error}");
 }
 
-function Get_Users($conx)
-{
-    $sql = "SELECT * FROM utilisateurs JOIN roles ON utilisateurs.role_id = roles.id_role";
-
-    return $conx->query($sql);
-
-}
-
 function Check_Exist_User($conx, $email, $password)
 {
     $sql = "SELECT * FROM utilisateurs WHERE email = '$email' AND pw = '$password'";
@@ -36,15 +28,22 @@ function Check_Role($conx, $email, $password)
     $result = $conx->query($sql);
 
     if ($result->num_rows > 0) {
-        return $result->fetch_assoc()['type_role'];
+        return $result->fetch_assoc();
     } else {
         return false;
     }
 }
 
-function Select_User($conx, $selectedUserId, $idUser)
+function Select_User($conx, $selectedUserId)
 {
     $sql = "SELECT * FROM utilisateurs WHERE id_utilisateur = {$selectedUserId}";
+    $result = $conx->query($sql);
+
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return false;
+    }
 }
 
 
