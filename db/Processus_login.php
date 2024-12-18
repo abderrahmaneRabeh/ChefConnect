@@ -8,13 +8,18 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $isExist = Check_Exist_User($conx, $email, $password);
+    $isExist = Check_Exist_User($conx, $email);
     // this function check the existing user in the database and return true or false
 
     if ($isExist) {
         // if the user exist in the database then
 
-        $role = Check_Role($conx, $email, $password);
+        if (!Check_haghing_password($conx, $email, $password)) {
+            header("Location: ../pages/login.php?error=Le compte n'a pas pu etre cree");
+            exit;
+        }
+
+        $role = Check_Role($conx, $email);
 
         $Selected_Id = $role["id_utilisateur"];
         //we get the role of the user

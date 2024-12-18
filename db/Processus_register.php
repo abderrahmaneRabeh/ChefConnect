@@ -9,7 +9,7 @@ if (isset($_GET["name"]) && isset($_GET["email"]) && isset($_GET["pw"])) {
     $email = $_GET["email"];
     $pw = $_GET["pw"];
 
-    $isExist = Check_Exist_User($conx, $email, $pw);
+    $isExist = Check_Exist_User($conx, $email);
 
     if (!$isExist) {
         $added_user = Ajouter_User($conx, $username, $email, $pw);
