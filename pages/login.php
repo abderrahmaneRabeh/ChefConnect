@@ -51,7 +51,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <?php
 
     if (isset($_GET['error'])) {
-        echo '<h1 class="text-danger text-center">' . $_GET['error'] . '</h1>';
+        echo '<h3 class="text-danger text-center">' . $_GET['error'] . '</h3>';
     }
 
     ?>

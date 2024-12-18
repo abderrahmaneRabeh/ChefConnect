@@ -9,16 +9,18 @@ if (isset($_GET["name"]) && isset($_GET["email"]) && isset($_GET["pw"])) {
     $email = $_GET["email"];
     $pw = $_GET["pw"];
 
+    $hashed_pw = $pw = password_hash($pw, PASSWORD_DEFAULT);
+
     $isExist = Check_Exist_User($conx, $email);
 
     if (!$isExist) {
-        $added_user = Ajouter_User($conx, $username, $email, $pw);
+        $added_user = Ajouter_User($conx, $username, $email, $hashed_pw);
 
         if ($added_user) {
 
             $Selected_User = Selected_User_By_Email_username($conx, $email, $username);
 
-            $role = Check_Role($conx, $email, $pw);
+            $role = Check_Role($conx, $email);
 
             session_start();
 

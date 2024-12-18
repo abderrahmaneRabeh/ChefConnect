@@ -15,7 +15,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         // if the user exist in the database then
 
         if (!Check_haghing_password($conx, $email, $password)) {
-            header("Location: ../pages/login.php?error=Le compte n'a pas pu etre cree");
+            header("Location: ../pages/login.php?error=Le compte n'a pas pu etre cree car le mot de passe est incorrect");
             exit;
         }
 
