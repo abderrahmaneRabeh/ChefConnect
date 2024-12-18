@@ -51,7 +51,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <?php
 
     if (isset($_GET['error'])) {
-        echo '<h1 class="text-danger text-center">Email ou mot de passe incorrect</h1>';
+        echo '<h1 class="text-danger text-center">' . $_GET['error'] . '</h1>';
     }
 
     ?>
@@ -66,9 +66,9 @@ https://templatemo.com/tm-558-klassy-cafe
                         <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
                     </div>
                     <span>or use your email for registration</span>
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
+                    <input type="text" placeholder="Name" name="name" required />
+                    <input type="email" placeholder="Email" name="email" required />
+                    <input type="password" placeholder="Password" name="pw" required />
                     <button>Sign Up</button>
                 </form>
             </div>
@@ -81,8 +81,8 @@ https://templatemo.com/tm-558-klassy-cafe
                         <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
                     </div>
                     <span>ou Avec mail et password</span>
-                    <input type="email" placeholder="Email" name="email" />
-                    <input type="password" placeholder="Password" name="password" />
+                    <input type="email" placeholder="Email" name="email" required />
+                    <input type="password" placeholder="Password" name="password" required />
                     <button>Sign In</button>
                 </form>
             </div>

@@ -19,7 +19,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         $Selected_Id = $role["id_utilisateur"];
         //we get the role of the user
 
-        $Selected_User = Select_User($conx, $Selected_Id);
+        $Selected_User = Select_User_by_Id($conx, $Selected_Id);
         // we get the user from the database
 
 

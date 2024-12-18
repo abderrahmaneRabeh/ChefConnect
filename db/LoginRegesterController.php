@@ -36,9 +36,21 @@ function Check_Role($conx, $email, $password)
     }
 }
 
-function Select_User($conx, $selectedUserId)
+function Select_User_by_Id($conx, $selectedUserId)
 {
     $sql = "SELECT * FROM utilisateurs WHERE id_utilisateur = {$selectedUserId}";
+    $result = $conx->query($sql);
+
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return false;
+    }
+}
+
+function Selected_User_By_Email_username($conx, $email, $userName)
+{
+    $sql = "SELECT * FROM utilisateurs WHERE email = '$email' AND username = '$userName'";
     $result = $conx->query($sql);
 
     if ($result->num_rows > 0) {
@@ -52,16 +64,15 @@ function Select_User($conx, $selectedUserId)
 
 function Ajouter_User($conx, $userName, $email, $pw)
 {
-    $sql = "INSERT INTO utilisateurs (username, email, pw, role_id) VALUES ('$userName', '$email', '$pw',1)";
+    $sql = "INSERT INTO utilisateurs (username, email, pw, role_id) VALUES ('$userName', '$email', '$pw', 1)";
     $result = $conx->query($sql);
 
-    if ($result->affected_rows > 0) {
-        return true;
+    // Check if the query was successful and rows were affected
+    if ($result && $conx->affected_rows > 0) {
+        return true; // Insert successful
     } else {
-        return false;
+        return false; // Insert failed
     }
-
 }
-
 
 
