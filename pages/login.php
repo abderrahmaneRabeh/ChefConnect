@@ -30,9 +30,15 @@ https://templatemo.com/tm-558-klassy-cafe
 
 <body>
 
-    <p class="text-center"><a href="../index.php" class="text-danger">Retour &agrave; l'accueil</a></p>
+    <p class="text-center"><a href="../index.php" class="text-primary">Retour &agrave; l'accueil</a></p>
 
+    <?php
 
+    if (isset($_GET['error'])) {
+        echo '<h1 class="text-danger text-center">Email ou mot de passe incorrect</h1>';
+    }
+
+    ?>
     <section class="form-section">
         <div class="container" id="container">
             <div class="form-container sign-up-container">
