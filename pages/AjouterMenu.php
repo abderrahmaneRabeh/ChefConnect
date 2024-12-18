@@ -1,3 +1,10 @@
+<?php
+
+include_once '../db/MenuPlatController.php';
+
+$chef_admin_user = get_admin_user($conx);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,10 +20,16 @@
 
 <body>
 
-    <form>
+    <form action="../db/Processuss_Ajouter_menu.php" method="post">
         <div class="mb-3">
             <label for="chef_id" class="form-label">Chef ID:</label>
-            <input type="text" id="chef_id" name="chef_id" class="form-control" placeholder="Enter Chef ID">
+            <select id="chef_id" name="chef_id" class="form-control">
+                <option value="">Select Chef</option>
+                <option value="<?php echo $chef_admin_user['id_utilisateur']; ?>">
+                    <?php echo $chef_admin_user['username']; ?>
+                </option>
+
+            </select>
         </div>
         <div class="mb-3">
             <label for="titre_menu" class="form-label">Menu Title:</label>
