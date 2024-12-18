@@ -60,10 +60,17 @@
                 </li>
             </ul>
             <div class="account-info">
-                <div class="account-info-picture">
-                    <img src="../../assets/images/rabeh.jpeg" alt="Account">
-                </div>
-                <div class="account-info-name">Rabeh</div>
+
+                <?php
+                session_start();
+                if (isset($_SESSION["user"])) {
+                    echo "<div class=\"account-info-name\">" . $_SESSION["user"]["username"] . "</div>";
+
+                } else {
+                    echo '<li class="scroll-to-section"><a href="./pages/login.php" id="login">S\'inscrire</a></li>';
+                }
+
+                ?>
                 <a href="/db/lougout.php" class="account-info-more lougout-btn">
                     <button class="account-info-more"
                         style="display: flex; align-items: center; justify-content: center;">

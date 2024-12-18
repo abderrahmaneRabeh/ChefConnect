@@ -1,3 +1,15 @@
+<?php
+
+$direction_Url_by_role;
+
+if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
+    $direction_Url_by_role = "admin";
+} else {
+    $direction_Url_by_role = "client";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +60,7 @@
                             <?php
                             session_start();
                             if (isset($_SESSION["user"])) {
-                                echo '<li class="scroll-to-section"><a href="../dashboard/' . $_SESSION["role"] . '/reservation.php">' . $_SESSION["user"]["username"] . '</a></li>';
+                                echo '<li class="scroll-to-section"><a id="login" href="../dashboard/' . $direction_Url_by_role . '/reservation.php">' . $_SESSION["user"]["username"] . '</a></li>';
                             } else {
                                 echo '<li class="scroll-to-section"><a href="./pages/login.php" id="login">S\'inscrire</a></li>';
                             }
