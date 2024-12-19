@@ -55,7 +55,7 @@ $chef_admin_user = get_admin_user($conx);
                     <input type="file" class="custom-file-input" id="image_menu" name="image_menu"
                         aria-describedby="inputGroupFileAddon04">
                     <label class="custom-file-label" for="image_menu">
-                        <i class="fas fa-upload"></i> Upload Image
+                        <i class="fa fa-upload"></i> Upload Image
                     </label>
                 </div>
             </div>

@@ -113,7 +113,7 @@
             <div class="products-area-wrapper tableView">
                 <div class="d-flex justify-content-between mt-4">
                     <h5>Ajouter <b class="text-danger">un nouveau Plat</b></h5>
-                    <a href="../../pages/AjouterMenu.php" class="action-button add" title="Add new menu"
+                    <a href="../../pages/AjouterPlat.php" class="action-button add" title="Add new menu"
                         id="addNewMenu">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

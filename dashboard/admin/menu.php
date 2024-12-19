@@ -219,7 +219,7 @@ $menus = Get_All_Menu($conx);
                                 </button>
                             </div>
                             <div class="menu-card-footer">
-                                <a href="../../pages/AjouterPlats.php?menu_id=<?php echo $menu["id_menu"]; ?>"
+                                <a href="../../pages/AjouterPlat.php?menu_id=<?php echo $menu["id_menu"]; ?>"
                                     class="add-dish-link">Ajouter des plats</a>
                             </div>
                         </div>

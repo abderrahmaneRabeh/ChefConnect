@@ -83,3 +83,5 @@ function Update_Menu($conx, $id_menu, $titre_menu, $description_menu, $image_men
     }
 
 }
+
+// Plats
