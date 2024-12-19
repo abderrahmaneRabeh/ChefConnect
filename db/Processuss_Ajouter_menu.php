@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precessing</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
 <?php
 
 include "./MenuPlatController.php";
@@ -24,5 +42,5 @@ if (isset($_POST["chef_id"]) && isset($_POST["titre_menu"]) && isset($_POST["des
     }
 
 } else {
-    echo "File upload failed";
+    echo '<div class="alert alert-danger" role="alert">File upload failed</div>';
 }

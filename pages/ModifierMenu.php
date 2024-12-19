@@ -4,7 +4,7 @@ include_once '../db/MenuPlatController.php';
 
 
 if (isset($_GET["menu_id"])) {
-    $menu = get_One_Menu($conx, isset($_GET["menu_id"]));
+    $menu = get_One_Menu($conx, id_menu: $_GET["menu_id"]);
 
 }
 
@@ -24,7 +24,7 @@ if (isset($_GET["menu_id"])) {
 </head>
 
 <body>
-    <div class="text-center mb-3">
+    <div class="text-center mt-2 mb-3">
         <div class="btn-group">
             <a href="/index.php" class="btn btn-custom">Retour à Accueil</a>
             <a href="/dashboard/admin/menu.php" class="btn btn-custom">Retour à Dashboard</a>
@@ -33,17 +33,8 @@ if (isset($_GET["menu_id"])) {
 
 
 
-    <form action="../db/Processuss_Ajouter_menu.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="menu_id" value="<?php echo $menu['id_menu']; ?>">
-        <div class="mb-3">
-            <label for="chef_id" class="form-label">Chef ID:</label>
-            <select id="chef_id" name="chef_id" class="form-control">
-                <option value="">Select Chef</option>
-                <option value="<?php echo $menu['chef_id']; ?>" selected>
-                    Rabeh
-                </option>
-            </select>
-        </div>
+    <form action="../db/Processus_Update.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="menu_id" value="<?= $menu['id_menu']; ?>">
         <div class="mb-3">
             <label for="titre_menu" class="form-label">Menu Title:</label>
             <input type="text" id="titre_menu" name="titre_menu" class="form-control" placeholder="Enter Menu Title"
@@ -61,7 +52,7 @@ if (isset($_GET["menu_id"])) {
                     <input type="file" class="custom-file-input" id="image_menu" name="image_menu"
                         aria-describedby="inputGroupFileAddon04">
                     <label class="custom-file-label" for="image_menu">
-                        <i class="fas fa-upload"></i> Upload Image
+                        <i class="fas fa-upload"></i> Ajouter une image
                     </label>
                 </div>
             </div>

@@ -70,3 +70,16 @@ function Delete_Menu($conx, $id_menu)
         return false;
     }
 }
+
+function Update_Menu($conx, $id_menu, $titre_menu, $description_menu, $image_menu)
+{
+    $sql = "UPDATE menus SET  titre_menu = '$titre_menu', description_menu = '$description_menu', img = '$image_menu' WHERE id_menu = $id_menu";
+    $result = $conx->query($sql);
+
+    if ($result->num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
