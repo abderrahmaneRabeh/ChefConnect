@@ -85,3 +85,38 @@ function Update_Menu($conx, $id_menu, $titre_menu, $description_menu, $image_men
 }
 
 // Plats
+
+function Add_Plats($conx, $id_plats, $nom_palat, $description, $img)
+{
+    $sql = "INSERT INTO plats (menu_id,nom_de_plat, description, img) VALUES ($id_plats, '$nom_palat', '$description', '$img')";
+    $result = $conx->query($sql);
+
+    if ($result->num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function Get_All_Plats($conx)
+{
+    $sql = "SELECT * FROM plats join menus on plats.menu_id = menus.id_menu";
+    $result = $conx->query($sql);
+
+    if ($result->num_rows > 0) {
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+function Delete_Plat($conx, $id_plat)
+{
+    $sql = "DELETE FROM plats WHERE id_plat = $id_plat";
+    $result = $conx->query($sql);
+    if ($result->num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}

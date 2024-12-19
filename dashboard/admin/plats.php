@@ -1,3 +1,12 @@
+<?php
+
+include "../../db/MenuPlatController.php";
+
+$listPlats = Get_All_Plats($conx);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" class="light">
 
@@ -125,6 +134,37 @@
                         <span style="margin-left: 8px;">Ajouter un plat</span>
                     </a>
                 </div>
+
+                <table class="table table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">Menu</th>
+                            <th scope="col">Nom du Plat</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $listPlats = Get_All_Plats($conx);
+                        foreach ($listPlats as $index => $plat) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($plat['titre_menu']) . "</td>";
+                            echo "<td>" . htmlspecialchars($plat['nom_de_plat']) . "</td>";
+                            echo "<td>" . htmlspecialchars($plat['description']) . "</td>";
+                            echo "<td><img src='../" . htmlspecialchars($plat['img']) . "' alt='Image du Plat' style='width: 50px; height: auto;'></td>";
+                            echo "<td>";
+                            echo "<a href='edit_plat.php?id_plat=" . htmlspecialchars($plat['id_plat']) . "' class='btn btn-sm btn-warning'>Edit</a>";
+                            echo "<a href='../../db/Processus_Delete_Plat.php?id_plat=" . htmlspecialchars($plat['id_plat']) . "' class='btn btn-sm btn-danger'>Delete</a>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+
             </div>
         </div>
     </div>
