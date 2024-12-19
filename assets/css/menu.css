@@ -22,3 +22,51 @@
 .section-heading {
     margin-bottom: 1rem !important;
 }
+
+.menu-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menu-card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.menu-card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.menu-card-content h5 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.menu-card-content p {
+    font-size: 14px;
+    color: #666;
+}
+
+.menu-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-card-link:hover .menu-card-content h5 {
+    color: #d9534f;
+}

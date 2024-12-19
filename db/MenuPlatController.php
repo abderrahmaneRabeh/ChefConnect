@@ -120,3 +120,14 @@ function Delete_Plat($conx, $id_plat)
         return false;
     }
 }
+
+function Get_Menu_Plates($conx, $id_plats)
+{
+    $sql = "SELECT * FROM plats WHERE menu_id = $id_plats";
+    $result = $conx->query($sql);
+    if ($result->num_rows > 0) {
+        return $result;
+    } else {
+        return false;
+    }
+}
