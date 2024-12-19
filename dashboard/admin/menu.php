@@ -1,3 +1,11 @@
+<?php
+
+include_once '../../db/MenuPlatController.php';
+
+$menus = Get_All_Menu($conx);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="light">
 
@@ -124,6 +132,99 @@
                         <span style="margin-left: 8px;">Ajouter menu</span>
                     </a>
                 </div>
+
+
+
+                <!-- <section class="list_menu">
+                    <table class="menu-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Chef</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($menus as $menu) {
+                                echo '<tr>
+                                    <td><img src="../' . $menu["img"] . '" alt="Menu Image" class="menu-img"></td>
+                                    <td>' . $menu["titre_menu"] . '</td>
+                                    <td>' . $menu["description_menu"] . '</td>
+                                    <td>Rabeh</td>
+                                    <td>
+                                <div class="button-group">
+                                    <button class="action-button edit" title="Edit menu"
+                                        style="width: 32px; height: 32px;"
+                                        onclick="window.location.href=\'../../pages/ModifierMenu.php?menu_id=' . $menu["id_menu"] . '">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-edit-2">
+                                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="action-button delete" title="Delete menu"
+                                        style="width: 32px; height: 32px;"
+                                        onclick="window.location.href=\'../../db/deleteMenu.php?menu_id=' . $menu["id_menu"] . '">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-trash-2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+
+                                </tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </section> -->
+
+
+                <section class="list_menu mt-3">
+                    <?php foreach ($menus as $menu): ?>
+                        <div class="menu-card">
+                            <div class="menu-card-image">
+                                <img src="../<?php echo $menu["img"]; ?>" alt="Menu Image">
+                            </div>
+                            <div class="menu-card-content">
+                                <h5><?php echo $menu["titre_menu"]; ?></h5>
+                                <p><?php echo $menu["description_menu"]; ?></p>
+                                <p class="price">Chef: Rabeh</p>
+                            </div>
+                            <div class="menu-card-actions">
+                                <button class="action-button edit" title="Edit menu"
+                                    onclick="window.location.href='../../pages/ModifierMenu.php?menu_id=<?php echo $menu['id_menu']; ?>'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-edit-2">
+                                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-button delete" title="Delete menu"
+                                    onclick="window.location.href='../../db/Precessus_Delete.php?menu_id=<?php echo $menu['id_menu']; ?>'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-trash-2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="menu-card-footer">
+                                <a href="../../pages/AjouterPlats.php?menu_id=<?php echo $menu["id_menu"]; ?>"
+                                    class="add-dish-link">Ajouter des plats</a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </section>
 
             </div>
         </div>

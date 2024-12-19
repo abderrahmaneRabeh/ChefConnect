@@ -9,7 +9,7 @@ if (isset($_GET["name"]) && isset($_GET["email"]) && isset($_GET["pw"])) {
     $email = $_GET["email"];
     $pw = $_GET["pw"];
 
-    $hashed_pw = $pw = password_hash($pw, PASSWORD_DEFAULT);
+    $hashed_pw = $pw = password_hash($pw, algo: PASSWORD_DEFAULT);
 
     $isExist = Check_Exist_User($conx, $email);
 

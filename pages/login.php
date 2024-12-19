@@ -12,6 +12,7 @@ if (isset($_SESSION["user"])) {
 }
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +105,9 @@ https://templatemo.com/tm-558-klassy-cafe
         </div>
     </section>
     <script src="../assets/js/login.js"></script>
+    <script>
+
+    </script>
 </body>
 
 </html>
