@@ -620,4 +620,8 @@ body {
 
 .lougout-btn button {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none !important;
 }/*# sourceMappingURL=style.css.map */

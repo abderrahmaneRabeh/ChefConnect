@@ -1,6 +1,7 @@
 <?php
 
-$direction_Url_by_role;
+session_start();
+// var_dump($_SESSION["role"]);
 
 if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
     $direction_Url_by_role = "admin";
@@ -57,7 +58,6 @@ if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
                             <li class="scroll-to-section"><a href="./pages/menu.php">Menus</a></li>
                             <li class="scroll-to-section"><a href="./pages/plats.php">Plats</a></li>
                             <?php
-                            session_start();
                             if (isset($_SESSION["user"])) {
                                 echo '<li class="scroll-to-section"><a id="login" href="../dashboard/' . $direction_Url_by_role . '/reservation.php">' . $_SESSION["user"]["username"] . '</a></li>';
                             } else {

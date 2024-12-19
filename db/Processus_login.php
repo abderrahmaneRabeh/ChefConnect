@@ -36,6 +36,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         // echo "<pre>";
         // print_r($_SESSION);
         // echo "</pre>";
+        // exit;
 
 
         switch ($role["type_role"]) {

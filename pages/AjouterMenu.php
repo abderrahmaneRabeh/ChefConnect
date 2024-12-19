@@ -19,6 +19,14 @@ $chef_admin_user = get_admin_user($conx);
 </head>
 
 <body>
+    <div class="d-flex justify-content-evenly">
+        <div>
+            <a href="/index.php">Retoure à Acceuill</a>
+        </div>
+        <div>
+            <a href="/index.php">Retoure à Dashboard</a>
+        </div>
+    </div>
 
     <form action="../db/Processuss_Ajouter_menu.php" method="post">
         <div class="mb-3">

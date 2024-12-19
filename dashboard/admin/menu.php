@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <script defer src="../js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
 </head>
 
 <body>
@@ -106,7 +108,24 @@
                     </button>
                 </div>
             </div>
-            <div class="products-area-wrapper tableView"></div>
+            <div class="products-area-wrapper tableView">
+
+                <div class="d-flex justify-content-between mt-4">
+                    <h5>Ajouter <b class="text-danger">un nouveau menu</b></h5>
+                    <a href="../../pages/AjouterMenu.php" class="action-button add" title="Add new menu"
+                        id="addNewMenu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-plus-circle">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        <span style="margin-left: 8px;">Ajouter menu</span>
+                    </a>
+                </div>
+
+            </div>
         </div>
     </div>
 
