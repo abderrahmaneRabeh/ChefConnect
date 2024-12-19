@@ -19,16 +19,16 @@ $chef_admin_user = get_admin_user($conx);
 </head>
 
 <body>
-    <div class="d-flex justify-content-evenly">
-        <div>
-            <a href="/index.php">Retoure à Acceuill</a>
-        </div>
-        <div>
-            <a href="/index.php">Retoure à Dashboard</a>
+    <div class="text-center mb-3">
+        <div class="btn-group">
+            <a href="/index.php" class="btn btn-custom">Retour à Accueil</a>
+            <a href="/dashboard/admin/menu.php" class="btn btn-custom">Retour à Dashboard</a>
         </div>
     </div>
 
-    <form action="../db/Processuss_Ajouter_menu.php" method="post">
+
+
+    <form action="../db/Processuss_Ajouter_menu.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="chef_id" class="form-label">Chef ID:</label>
             <select id="chef_id" name="chef_id" class="form-control">

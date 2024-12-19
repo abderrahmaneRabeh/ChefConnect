@@ -21,3 +21,17 @@ function get_admin_user($conx)
         return false;
     }
 }
+
+function Ajouter_un_Menu($conx, $chef_id, $titre_menu, $description_menu, $image_menu)
+{
+    $sql = "INSERT INTO menus (chef_id, titre_menu, description_menu, image_menu) VALUES ($chef_id, '$titre_menu', '$description_menu', '$image_menu')";
+    $result = $conx->query($sql);
+
+    // Check if the query was successful and rows were affected
+    if ($result && $conx->affected_rows > 0) {
+        return true; // Insert successful
+    } else {
+        return false; // Insert failed
+    }
+
+}

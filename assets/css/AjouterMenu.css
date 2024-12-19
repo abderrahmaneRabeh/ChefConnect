@@ -29,3 +29,45 @@ form {
 .btn:hover {
     background-color: #e64a19;
 }
+
+/* Style for the buttons */
+.btn-custom {
+    display: inline-block;
+    padding: 8px 16px;
+    /* Smaller padding for a compact size */
+    font-size: 14px;
+    /* Smaller font size */
+    font-weight: 600;
+    /* Semi-bold text for readability */
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    /* White text color */
+    background: linear-gradient(45deg, #ff7f50, #ff4500);
+    /* Orange gradient background */
+    border: none;
+    border-radius: 6px;
+    /* Rounded corners */
+    margin: 0 10px;
+    /* Add horizontal spacing between buttons */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Smooth hover effects */
+}
+
+/* Hover effect */
+.btn-custom:hover {
+    transform: translateY(-2px);
+    /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    /* Shadow on hover */
+    background: linear-gradient(45deg, #ff4500, #ff7f50);
+    /* Reverse gradient */
+}
+
+/* Active state */
+.btn-custom:active {
+    transform: translateY(0);
+    /* Reset lift */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    /* Reduced shadow */
+}
