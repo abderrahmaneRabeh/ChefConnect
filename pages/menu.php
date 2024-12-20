@@ -1,14 +1,11 @@
 <?php
 
-$direction_Url_by_role;
+session_start();
 
-if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
-    $direction_Url_by_role = "admin";
-} else {
-    $direction_Url_by_role = "client";
-}
-
+include "../middleware/HasTheRightToAcess.php";
 include '../db/MenuPlatController.php';
+
+$direction_Url_by_role = getDirectionUrlByRole();
 
 $Menu_List = Get_All_Menu($conx);
 
@@ -61,7 +58,6 @@ $Menu_List = Get_All_Menu($conx);
                             <li class="scroll-to-section"><a href="./menu.php">Menus</a></li>
                             <li class="scroll-to-section"><a href="./plats.php">Plats</a></li>
                             <?php
-                            session_start();
                             if (isset($_SESSION["user"])) {
                                 echo '<li class="scroll-to-section"><a id="login" href="../dashboard/' . $direction_Url_by_role . '/reservation.php">' . $_SESSION["user"]["username"] . '</a></li>';
                             } else {

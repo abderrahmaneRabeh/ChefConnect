@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+include_once '../../db/MenuPlatController.php';
+include_once '../../middleware/HasTheRightToAcess.php';
+
+redirectUserByRoleDashboard();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="light">
 

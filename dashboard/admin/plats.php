@@ -1,7 +1,10 @@
 <?php
+session_start();
 
+include_once '../../middleware/HasTheRightToAcess.php';
 include "../../db/MenuPlatController.php";
 
+redirectUserByRoleDashboard();
 $listPlats = Get_All_Plats($conx);
 
 ?>

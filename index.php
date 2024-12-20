@@ -1,13 +1,11 @@
 <?php
 
-session_start();
-// var_dump($_SESSION["role"]);
+include "./middleware/HasTheRightToAcess.php";
 
-if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
-    $direction_Url_by_role = "admin";
-} else {
-    $direction_Url_by_role = "client";
-}
+session_start();
+
+$direction_Url_by_role = getDirectionUrlByRole();
+
 
 ?>
 
@@ -48,7 +46,7 @@ if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo text-dark">
+                        <a href="/index.php" class="logo text-dark">
                             Chef<span class="text-danger">Connect</span>
                         </a>
                         <!-- ***** Logo End ***** -->

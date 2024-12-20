@@ -1,6 +1,11 @@
 <?php
 
+session_start();
+
 include_once '../../db/MenuPlatController.php';
+include_once '../../middleware/HasTheRightToAcess.php';
+
+redirectUserByRoleDashboard();
 
 $menus = Get_All_Menu($conx);
 
@@ -71,7 +76,6 @@ $menus = Get_All_Menu($conx);
             </ul>
             <div class="account-info">
                 <?php
-                session_start();
                 if (isset($_SESSION["user"])) {
                     echo "<div class=\"account-info-name\">" . $_SESSION["user"]["username"] . "</div>";
 
