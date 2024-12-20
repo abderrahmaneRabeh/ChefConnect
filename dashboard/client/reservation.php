@@ -5,7 +5,7 @@ session_start();
 include_once '../../db/MenuPlatController.php';
 include_once '../../middleware/HasTheRightToAcess.php';
 
-redirectUserByRoleDashboard();
+redirectUserByRoleDashboard(role: "user");
 
 ?>
 
@@ -49,7 +49,6 @@ redirectUserByRoleDashboard();
             </ul>
             <div class="account-info">
                 <?php
-                session_start();
                 if (isset($_SESSION["user"])) {
                     echo "<div class=\"account-info-name\">" . $_SESSION["user"]["username"] . "</div>";
 

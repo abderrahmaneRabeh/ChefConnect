@@ -1,0 +1,52 @@
+#offers {
+    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+    padding: 50px 0;
+}
+
+.section-heading h6 {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ff6b6b;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    min-height: max-content;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-body h6 {
+    font-size: 16px;
+}
+
+.card-body p {
+    font-size: 12px;
+}
+
+.btn-primary {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+    font-size: 12px;
+}
+
+.btn-primary:hover {
+    background-color: #e65555;
+    border-color: #e65555;
+}
+
+#centered {
+    justify-content: center;
+}

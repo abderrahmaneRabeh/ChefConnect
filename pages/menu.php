@@ -99,7 +99,15 @@ $Menu_List = Get_All_Menu($conx);
                                     </div>
                                     <div class="menu-card-content">
                                         <h5><?php echo htmlspecialchars($menu['titre_menu']); ?></h5>
-                                        <p><?php echo htmlspecialchars($menu['description_menu']); ?></p>
+                                        <p>
+                                            <?php
+                                            if (strlen($menu['description_menu']) > 35) {
+                                                echo htmlspecialchars(substr($menu['description_menu'], 0, 35) . "...");
+                                            } else {
+                                                echo htmlspecialchars($menu['description_menu']);
+                                            }
+                                            ?>
+                                        </p>
                                     </div>
                                 </div>
                             </a>

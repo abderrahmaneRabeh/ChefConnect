@@ -4,7 +4,7 @@ session_start();
 include_once '../../middleware/HasTheRightToAcess.php';
 include "../../db/MenuPlatController.php";
 
-redirectUserByRoleDashboard();
+redirectUserByRoleDashboard("admin");
 $listPlats = Get_All_Plats($conx);
 
 ?>
@@ -77,7 +77,6 @@ $listPlats = Get_All_Plats($conx);
             <div class="account-info">
 
                 <?php
-                session_start();
                 if (isset($_SESSION["user"])) {
                     echo "<div class=\"account-info-name\">" . $_SESSION["user"]["username"] . "</div>";
 

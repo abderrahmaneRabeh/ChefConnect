@@ -42,7 +42,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         switch ($role["type_role"]) {
             // we redirect the user to the dashboard according to the role
             case "admin":
-                header("Location: ../dashboard/admin/reservation.php");
+                header(header: "Location: ../dashboard/admin/reservation.php");
                 break;
             default:
                 header("Location: ../dashboard/client/reservation.php");
