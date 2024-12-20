@@ -38,6 +38,9 @@ $Menu_List = Get_All_Menu($conx);
     <link rel="stylesheet" href="../assets/css/lightbox.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/menu.css">
+
+    <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+
 </head>
 
 <body>

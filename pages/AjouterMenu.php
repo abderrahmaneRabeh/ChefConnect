@@ -16,6 +16,8 @@ $chef_admin_user = get_admin_user($conx);
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/AjouterMenu.css">
+    <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+
 </head>
 
 <body>

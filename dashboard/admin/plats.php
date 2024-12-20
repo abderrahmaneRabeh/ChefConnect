@@ -23,6 +23,8 @@ $listPlats = Get_All_Plats($conx);
 
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+    <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
+
 </head>
 
 <body>

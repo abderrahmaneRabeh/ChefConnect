@@ -25,6 +25,8 @@ if (!$menu_details) {
     <meta name="author" content="">
     <title><?php echo htmlspecialchars($menu_details['titre_menu']); ?> - Menu Details</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 

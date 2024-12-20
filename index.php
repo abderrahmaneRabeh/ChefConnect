@@ -34,6 +34,10 @@ $direction_Url_by_role = getDirectionUrlByRole();
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
+
+    <link rel="icon" href="./assets/images/logo.png" type="image/x-icon">
+
+
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>

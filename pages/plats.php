@@ -37,6 +37,9 @@ $listPlats = Get_All_Plats($conx);
     <link rel="stylesheet" href="../assets/css/lightbox.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/plats.css">
+
+    <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+
 </head>
 
 <body>
@@ -80,7 +83,7 @@ $listPlats = Get_All_Plats($conx);
     <!-- ***** Menu Area Starts ***** -->
 
     <section class="section" id="offers">
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3 text-center">
                     <div class="section-heading">
@@ -157,20 +160,7 @@ $listPlats = Get_All_Plats($conx);
     <script src="../assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="../assets/js/popper.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="../assets/js/owl-carousel.js"></script>
-    <script src="../assets/js/accordions.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
-    <script src="../assets/js/scrollreveal.min.js"></script>
-    <script src="../assets/js/waypoints.min.js"></script>
-    <script src="../assets/js/jquery.counterup.min.js"></script>
-    <script src="../assets/js/imgfix.min.js"></script>
-    <script src="../assets/js/slick.js"></script>
-    <script src="../assets/js/lightbox.js"></script>
-    <script src="../assets/js/isotope.js"></script>
 
     <!-- Global Init -->
     <script src="../assets/js/custom.js"></script>

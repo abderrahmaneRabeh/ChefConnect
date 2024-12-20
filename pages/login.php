@@ -22,6 +22,8 @@ redirectUserByRoleLogin();
         rel="stylesheet">
 
     <title>ChefConnect - Home</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+
     <!--
     
 TemplateMo 558 Klassy Cafe

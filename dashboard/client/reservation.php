@@ -19,6 +19,7 @@ redirectUserByRoleDashboard(role: "user");
 
     <link rel="stylesheet" href="../css/style.css">
     <script defer src="../js/main.js"></script>
+    <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
 </head>
 
 <body>

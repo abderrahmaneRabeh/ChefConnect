@@ -23,6 +23,8 @@ if (isset($_GET['menu_id'])) {
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/AjouterPlat.css">
+    <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+
 </head>
 
 <body>

@@ -1,6 +1,7 @@
 #offers {
     background: linear-gradient(to bottom, #f9f9f9, #ffffff);
     padding: 50px 0;
+    margin-top: 3rem !important;
 }
 
 .section-heading h6 {
