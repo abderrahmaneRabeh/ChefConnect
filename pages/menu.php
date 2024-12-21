@@ -93,7 +93,7 @@ $Menu_List = Get_All_Menu($conx);
                 <div class="row">
                     <?php foreach ($Menu_List as $menu): ?>
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <a href="menu_detail.php?menu_id=<?php echo $menu['id_menu']; ?>" class="menu-card-link">
+                            <div class="menu-card-link">
                                 <div class="menu-card shadow-sm">
                                     <div class="menu-card-image">
                                         <img src="<?php echo htmlspecialchars($menu['img']); ?>"
@@ -101,7 +101,9 @@ $Menu_List = Get_All_Menu($conx);
                                             style="width: 100%; height: 200px; object-fit: cover;">
                                     </div>
                                     <div class="menu-card-content">
-                                        <h5><?php echo htmlspecialchars($menu['titre_menu']); ?></h5>
+                                        <h5><a
+                                                href="menu_detail.php?menu_id=<?php echo $menu['id_menu']; ?>"><?php echo htmlspecialchars($menu['titre_menu']); ?></a>
+                                        </h5>
                                         <p>
                                             <?php
                                             if (strlen($menu['description_menu']) > 35) {
@@ -111,9 +113,16 @@ $Menu_List = Get_All_Menu($conx);
                                             }
                                             ?>
                                         </p>
+                                        <?php if (isset($_SESSION["user"])): ?>
+                                            <button
+                                                onclick="window.location.href = 'ReserveMenu.php?menu_id=<?php echo $menu['id_menu']; ?>';"
+                                                type="button" class="btn btn-outline-primary w-100 mt-3">
+                                                <i class="fa fa-calendar mr-2"></i>Reserve
+                                            </button>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>

@@ -50,7 +50,7 @@
     text-align: center;
 }
 
-.menu-card-content h5 {
+.menu-card-content h5 a {
     margin: 10px 0;
     font-size: 18px;
     font-weight: bold;
@@ -67,6 +67,6 @@
     color: inherit;
 }
 
-.menu-card-link:hover .menu-card-content h5 {
+.menu-card-link:hover .menu-card-content h5 a {
     color: #d9534f;
 }
