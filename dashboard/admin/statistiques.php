@@ -3,8 +3,10 @@
 session_start();
 include_once '../../db/StatistiqueController.php';
 $list_users = Number_of_users($conx);
-
 $Nbr_users = $list_users->num_rows;
+
+$List_Attend_Reservation = Nbr_attend_reservation($conx);
+$List_Accepted_Reservation = Nbr_accepted_reservation($conx);
 ?>
 
 
@@ -22,7 +24,7 @@ $Nbr_users = $list_users->num_rows;
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
     <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/Reservation.css">
+    <link rel="stylesheet" href="../css/statistiques.css">
 
 </head>
 
@@ -169,97 +171,80 @@ $Nbr_users = $list_users->num_rows;
                     </table>
                 </div>
 
-                <style>
-                    .users-table-container {
-                        margin: 20px;
-                        padding: 20px;
-                        background: #fff;
-                        border-radius: 10px;
-                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                    }
+                <!-- Diplay Reservations -->
 
-                    .section-title {
-                        font-size: 24px;
-                        font-weight: bold;
-                        color: #ff7f50;
-                        margin-bottom: 5px;
-                    }
-
-                    .user-count {
-                        font-size: 16px;
-                        color: #666;
-                        margin-bottom: 15px;
-                    }
-
-                    .users-table {
-                        width: 100%;
-                        border-collapse: collapse;
-                        font-size: 16px;
-                    }
-
-                    .users-table th,
-                    .users-table td {
-                        padding: 12px 15px;
-                        text-align: left;
-                        border-bottom: 1px solid #eee;
-                    }
-
-                    .users-table th {
-                        background: #ff7f50;
-                        color: #fff;
-                        font-weight: bold;
-                    }
-
-                    .users-table tbody tr:hover {
-                        background: #fce4d6;
-                    }
-
-                    .status-badge {
-                        display: inline-block;
-                        padding: 5px 10px;
-                        font-size: 12px;
-                        font-weight: bold;
-                        border-radius: 20px;
-                    }
-
-                    .status-badge.active {
-                        background: #ffb74d;
-                        color: #fff;
-                    }
-
-                    .btn {
-                        padding: 5px 10px;
-                        font-size: 14px;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                    }
-
-                    .btn-primary {
-                        background: #ff7043;
-                        color: #fff;
-                    }
-
-                    .btn-primary:hover {
-                        background: #ff5722;
-                    }
-
-                    .btn-danger {
-                        background: #e53935;
-                        color: #fff;
-                    }
-
-                    .btn-danger:hover {
-                        background: #d32f2f;
-                    }
-
-                    .no-data {
-                        text-align: center;
-                        color: #999;
-                        font-style: italic;
-                    }
-                </style>
-
+                <!-- Display Reservations -->
+                <div class="users-table-container">
+                    <h2 class="section-title">Reservations En Attente</h2>
+                    <p class="user-count">Total Reservations: <?php echo $List_Attend_Reservation->num_rows; ?></p>
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>utilisateurs</th>
+                                <th>Date de Reservation</th>
+                                <th>Time de Reservation</th>
+                                <th>Number of People</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // $reservations = get_All_Reservation($conx);
+                            if (!empty($List_Attend_Reservation)) {
+                                foreach ($List_Attend_Reservation as $reservation) {
+                                    echo "<tr>
+                        <td>" . htmlspecialchars($reservation['username']) . "</td>
+                        <td>" . htmlspecialchars($reservation['date_de_reservation']) . "</td>
+                        <td>" . htmlspecialchars($reservation['time_de_reservation']) . "</td>
+                        <td>" . htmlspecialchars($reservation['number_of_people']) . "</td>
+                        <td>" . htmlspecialchars($reservation['status']) . "</td>
+                    </tr>";
+                                }
+                            } else {
+                                echo "<tr>
+                    <td colspan='4' class='no-data'>No reservations found</td>
+                </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Display Reservations Accepted -->
+                <div class="users-table-container">
+                    <h2 class="section-title">Reservations Accepter</h2>
+                    <p class="user-count">Total Reservations: <?php echo $List_Accepted_Reservation->num_rows; ?></p>
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>utilisateurs</th>
+                                <th>Date de Reservation</th>
+                                <th>Time de Reservation</th>
+                                <th>Number of People</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // $reservations = get_All_Reservation($conx);
+                            if (!empty($List_Accepted_Reservation)) {
+                                foreach ($List_Accepted_Reservation as $reservation) {
+                                    echo "<tr>
+                        <td>" . htmlspecialchars($reservation['username']) . "</td>
+                        <td>" . htmlspecialchars($reservation['date_de_reservation']) . "</td>
+                        <td>" . htmlspecialchars($reservation['time_de_reservation']) . "</td>
+                        <td>" . htmlspecialchars($reservation['number_of_people']) . "</td>
+                        <td>" . htmlspecialchars($reservation['status']) . "</td>
+                    </tr>";
+                                }
+                            } else {
+                                echo "<tr>
+                    <td colspan='4' class='no-data'>No reservations found</td>
+                </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

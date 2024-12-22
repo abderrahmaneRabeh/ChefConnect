@@ -19,3 +19,23 @@ function Number_of_users($conx)
     }
 
 }
+
+function Nbr_attend_reservation($conx)
+{
+    $result = $conx->query("SELECT * FROM reservations join utilisateurs on reservations.utilisateur_id = utilisateurs.id_utilisateur and status = 'en attente'");
+    if ($result->num_rows > 0) {
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+function Nbr_accepted_reservation($conx)
+{
+    $result = $conx->query("SELECT * FROM reservations join utilisateurs on reservations.utilisateur_id = utilisateurs.id_utilisateur and status = 'acceptée'");
+    if ($result->num_rows > 0) {
+        return $result;
+    } else {
+        return false;
+    }
+}
