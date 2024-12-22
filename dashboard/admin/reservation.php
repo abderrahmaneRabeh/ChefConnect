@@ -2,10 +2,12 @@
 
 session_start();
 
-include_once '../../db/MenuPlatController.php';
+// include_once '../../db/MenuPlatController.php';
+include_once '../../db/ReservationController.php';
 include_once '../../middleware/HasTheRightToAcess.php';
 
 
+$Reservation_list = get_All_Reservation($conx);
 redirectUserByRoleDashboard("admin");
 // exit;
 
@@ -26,6 +28,7 @@ redirectUserByRoleDashboard("admin");
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
     <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/Reservation.css">
 
 </head>
 
@@ -125,7 +128,51 @@ redirectUserByRoleDashboard("admin");
                     </button>
                 </div>
             </div>
-            <div class="products-area-wrapper tableView"></div>
+            <div class="products-area-wrapper tableView">
+
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Utilisateur</th>
+                            <th>Menu</th>
+                            <th>Date</th>
+                            <th>Heure</th>
+                            <th>Nombre de Personnes</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                        if ($Reservation_list) {
+                            // Assume $reservations is an array of reservation data
+                            foreach ($Reservation_list as $reservation) {
+                                echo "<tr>";
+                                echo "<td>" . htmlspecialchars($reservation['id_reservation']) . "</td>";
+                                echo "<td>" . htmlspecialchars($reservation['utilisateur_id']) . "</td>";
+                                echo "<td>" . htmlspecialchars($reservation['menu_id']) . "</td>";
+                                echo "<td>" . htmlspecialchars($reservation['date_de_reservation']) . "</td>";
+                                echo "<td>" . htmlspecialchars($reservation['time_de_reservation']) . "</td>";
+                                echo "<td>" . htmlspecialchars($reservation['number_of_people']) . "</td>";
+                                echo "<td><form action='/db/changeStatus.php' method='post'>
+                            <select name='status' id='status' class='form-control' onchange='this.form.submit()'>
+                            <option value='en attente' " . ($reservation['status'] == 'en attente' ? 'selected' : '') . ">En attente</option>
+                            <option value='acceptée' " . ($reservation['status'] == 'acceptée' ? 'selected' : '') . ">acceptée</option>
+                            <option value='refusée' " . ($reservation['status'] == 'refusée' ? 'selected' : '') . ">refusée</option>
+                            </select>
+                            <input type='hidden' name='id_reservation' value='" . htmlspecialchars($reservation['id_reservation']) . "'>
+                            </form></td>";
+
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='7' class='text-center'>Aucune reservation</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

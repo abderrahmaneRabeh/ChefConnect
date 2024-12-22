@@ -139,34 +139,37 @@ $listPlats = Get_All_Plats($conx);
                     </a>
                 </div>
 
-                <table class="table table-hover mt-4">
-                    <thead>
-                        <tr>
-                            <th scope="col">Menu</th>
-                            <th scope="col">Nom du Plat</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $listPlats = Get_All_Plats($conx);
-                        foreach ($listPlats as $index => $plat) {
-                            echo "<tr>";
-                            echo "<td>" . htmlspecialchars($plat['titre_menu']) . "</td>";
-                            echo "<td>" . htmlspecialchars($plat['nom_de_plat']) . "</td>";
-                            echo "<td>" . htmlspecialchars($plat['description']) . "</td>";
-                            echo "<td><img src='../" . htmlspecialchars($plat['img']) . "' alt='Image du Plat' style='width: 50px; height: auto;'></td>";
-                            echo "<td>";
-                            echo "<a href='edit_plat.php?id_plat=" . htmlspecialchars($plat['id_plat']) . "' class='btn btn-sm btn-warning'>Edit</a>";
-                            echo "<a href='../../db/Processus_Delete_Plat.php?id_plat=" . htmlspecialchars($plat['id_plat']) . "' class='btn btn-sm btn-danger'>Delete</a>";
-                            echo "</td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                <div class="table-responsive text-center">
+                    <table class="table table-hover mt-4"
+                        style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border: none;">
+                        <thead style="background-color: #ffa500;">
+                            <tr class="text-center">
+                                <th scope="col" style="color: white;">Menu</th>
+                                <th scope="col" style="color: white;">Nom du Plat</th>
+                                <th scope="col" style="color: white;">Description</th>
+                                <th scope="col" style="color: white;">Image</th>
+                                <th scope="col" style="color: white;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $listPlats = Get_All_Plats($conx);
+                            foreach ($listPlats as $index => $plat) {
+                                echo "<tr style='background-color: white;'>";
+                                echo "<td>" . htmlspecialchars($plat['titre_menu']) . "</td>";
+                                echo "<td>" . htmlspecialchars($plat['nom_de_plat']) . "</td>";
+                                echo "<td>" . htmlspecialchars($plat['description']) . "</td>";
+                                echo "<td><img src='../" . htmlspecialchars($plat['img']) . "' alt='Image du Plat' style='width: 50px; height: auto; border-radius: 10px;'></td>";
+                                echo "<td>";
+                                echo "<a href='edit_plat.php?id_plat=" . htmlspecialchars($plat['id_plat']) . "' class='btn btn-sm' style='background-color: #ffa500; color: white;'>Edit</a>";
+                                echo "<a href='../../db/Processus_Delete_Plat.php?id_plat=" . htmlspecialchars($plat['id_plat']) . "' class='btn btn-sm' style='background-color: #ff4500; color: white;'>Delete</a>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
 
 
             </div>

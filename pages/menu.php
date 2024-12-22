@@ -113,7 +113,7 @@ $Menu_List = Get_All_Menu($conx);
                                             }
                                             ?>
                                         </p>
-                                        <?php if (isset($_SESSION["user"])): ?>
+                                        <?php if (isset($_SESSION["user"]) && $_SESSION["role"] == "user"): ?>
                                             <button
                                                 onclick="window.location.href = 'ReserveMenu.php?menu_id=<?php echo $menu['id_menu']; ?>';"
                                                 type="button" class="btn btn-outline-primary w-100 mt-3">

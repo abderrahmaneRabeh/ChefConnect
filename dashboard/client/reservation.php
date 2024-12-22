@@ -2,8 +2,13 @@
 
 session_start();
 
-include_once '../../db/MenuPlatController.php';
+include_once '../../db/ReservationController.php';
 include_once '../../middleware/HasTheRightToAcess.php';
+if (isset($_SESSION['user'])) {
+
+    $List_Reservation = get_User_Reservations($conx, $_SESSION['user']['id_utilisateur']);
+}
+
 
 redirectUserByRoleDashboard(role: "user");
 
@@ -19,7 +24,29 @@ redirectUserByRoleDashboard(role: "user");
 
     <link rel="stylesheet" href="../css/style.css">
     <script defer src="../js/main.js"></script>
+    <link rel="stylesheet" href="../css/Reservation.css">
     <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
+    <style>
+        td,
+        th {
+            text-align: center;
+        }
+
+        .annuler_btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+        }
+
+        .annuler_btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
 </head>
 
 <body>
@@ -94,7 +121,62 @@ redirectUserByRoleDashboard(role: "user");
                     </button>
                 </div>
             </div>
-            <div class="products-area-wrapper tableView"></div>
+            <div class="products-area-wrapper tableView">
+
+                <div class="products-area-wrapper tableView">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Menu</th>
+                                <th>Date</th>
+                                <th>Heure</th>
+                                <th>Nombre de Personnes</th>
+                                <th>Status</th>
+                                <th>Annuler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                            if ($List_Reservation) {
+                                // Assume $reservations is an array of reservation data
+                                foreach ($List_Reservation as $reservation) {
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($reservation['titre_menu']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($reservation['date_de_reservation']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($reservation['time_de_reservation']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($reservation['number_of_people']) . "</td>";
+                                    echo "<td>
+                                         <span class='status-label' style='
+                                             background-color: " . ($reservation['status'] == 'en attente' ? '#f7dc6f' :
+                                        ($reservation['status'] == 'acceptée' ? '#8bc34a' : '#e74c3c')) . ";
+                                             border-radius: 0.25rem;
+                                             padding: 0.25rem;
+                                             font-size: 0.8rem;
+                                             font-weight: 600;
+                                             color: " . ($reservation['status'] == 'en attente' ? 'black' :
+                                        ($reservation['status'] == 'acceptée' ? 'white' : 'white')) . ";'>" .
+                                        htmlspecialchars($reservation['status']) .
+                                        "</span></td>";
+                                    if ($reservation['status'] == 'en attente') {
+                                        echo "<td>
+                                            <a href='../../db/annulerReservation.php?reservation_id=" . $reservation['id_reservation'] . "' class='annuler_btn'>
+                                                <i class='fas fa-times-circle'></i> Annuler
+                                            </a>
+                                        </td>";
+                                    } else {
+                                        echo "<td>vous ne pouvez pas annuler cette réservation</td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='7' class='text-center'>Aucune reservation</td></tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
